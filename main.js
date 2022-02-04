@@ -113,10 +113,45 @@ const icons = [
 	}
 ];
 
+//Si collega il contenitore con una variabile
 const container = document.getElementById('icon-container');
+
+//Richiamo la funzione sotto scritta
 createIcons(container, icons);
 
+//Richiamo con una variabile la selezione di opzioni
+const selector = document.getElementById('options-icons');
 
+//Si aggiunge l'event listener per il cambio di selezione
+selector.addEventListener('change', 
+
+	function () {
+
+		let changeIcons = this.value;
+
+		if (changeIcons == "") {
+			createIcons(container, icons);
+		} else {
+
+			const filterIcons = icons.filter(typeIcon => {
+
+				if (typeIcon.type == changeIcons) {
+					return true;
+				}
+				return false;
+			});
+
+			createIcons(container, filterIcons);
+
+		}
+
+	}
+	
+	
+	
+)
+
+//Creata la funzione per scrivere le icone
 function createIcons (container, icons) {
 
     let content = '';
