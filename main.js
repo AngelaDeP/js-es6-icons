@@ -113,3 +113,24 @@ const icons = [
 	}
 ];
 
+const container = document.getElementById('icon-container');
+createIcons(container, icons);
+
+
+function createIcons (container, icons) {
+
+    let content = '';
+
+    icons.forEach(iconObject => {
+
+    content += `<div id="icon-box">
+                    <i class="color-${iconObject.color} ${iconObject.family} ${iconObject.prefix}${iconObject.name}"></i>
+                    <div class="text-icon">${iconObject.name}</div>
+                </div>
+                `;
+    });
+
+    container.innerHTML = content;
+
+}
+
